@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Tanker";
+  src: url("assets/police/Tanker-Regular.otf");
+
+  font-family: "Proxima Nova";
+  src: url("assets/police/ProximaNova-Regular.otf");
+}
