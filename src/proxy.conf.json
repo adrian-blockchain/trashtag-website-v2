@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": "https://api.trashtag.io",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}
