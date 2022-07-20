@@ -16,7 +16,7 @@ export class WhitelistService {
 
   async createEmail(data:any){
 
-    console.log("data email: " ,data)
+
     await fetch('https://api.trashtag.io/email',{
       method:'POST',
       headers:{

@@ -14,7 +14,7 @@ export class MailComponent implements OnInit {
   }
   onSubmit(){
     let data = this.whitelistService.form.value;
-    console.log("data from onSubmit", data)
+
 
     this.whitelistService.createEmail(data)
       .then(res =>{
