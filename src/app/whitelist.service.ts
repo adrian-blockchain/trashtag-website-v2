@@ -14,18 +14,20 @@ export class WhitelistService {
     }
   )
 
-  createEmail(data:any){
-    return new Promise<any>((resolve,reject) =>{
-      fetch('https://api.trashtag.io/email',{
-        method:'POST',
-        headers:{
-          'content-type':'application/json',
-        },
-        body:JSON.stringify({
-          email:data,
-        })
-      })
+  async createEmail(data:any){
 
+    console.log("data email: " ,data)
+    await fetch('https://api.trashtag.io/email',{
+      method:'POST',
+      headers:{
+        'content-type':'application/json',
+      },
+      body:JSON.stringify({
+        email:data,
+      })
+    })
+
+    return new Promise<any>((resolve,reject) =>{
       this.firestore.collection("mail")
         .add(data)
         .then(res =>{}, err => reject(err));
