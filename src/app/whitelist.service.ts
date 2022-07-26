@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {FormControl, FormGroup} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
+import {map} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class WhitelistService {
-
-  constructor(private firestore: AngularFirestore) { }
-
-  form = new FormGroup({
-    email : new FormControl('')
-    }
-  )
-
-  async createEmail(data:any){
+private mailApi= 'https://api.trashtag.io/email'
 
 
+  constructor(private http: HttpClient) { }
+
+
+
+  async PostEmail(data:any){
     await fetch('https://api.trashtag.io/email',{
       method:'POST',
       headers:{
@@ -26,11 +25,20 @@ export class WhitelistService {
         email:data,
       })
     })
+  }
 
-    return new Promise<any>((resolve,reject) =>{
-      this.firestore.collection("mail")
-        .add(data)
-        .then(res =>{}, err => reject(err));
-    } );
+  async PostContact(data:any){
+    await fetch('https://api.trashtag.io/contact',{
+      method:'POST',
+      headers:{
+        'content-type':'application/json',
+      },
+      body:JSON.stringify({
+        name: data.name,
+        email:data.email,
+        phone: data.phone,
+        message: data.message
+      })
+    })
   }
 }

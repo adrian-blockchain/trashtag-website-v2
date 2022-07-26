@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from "@angular/forms";
+import {WhitelistService} from "../../whitelist.service";
 
 @Component({
   selector: 'app-city',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CityComponent implements OnInit {
 
-  constructor() { }
+  constructor(public whiteList: WhitelistService) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(FormData: NgForm){
+    console.log(FormData.value)
+    this.whiteList.PostContact(FormData)
+
   }
 
 }

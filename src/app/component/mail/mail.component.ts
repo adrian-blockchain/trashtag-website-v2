@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {WhitelistService} from "../../whitelist.service";
+import { FormGroup, FormBuilder, FormControl, Validators, NgForm } from '@angular/forms'
 
 @Component({
   selector: 'app-mail',
@@ -7,19 +8,15 @@ import {WhitelistService} from "../../whitelist.service";
   styleUrls: ['./mail.component.css']
 })
 export class MailComponent implements OnInit {
+  constructor(private whiteList: WhitelistService) { }
 
-  constructor(public whitelistService: WhitelistService) { }
+  ngOnInit(): void{
 
-  ngOnInit(): void {
   }
-  onSubmit(){
-    let data = this.whitelistService.form.value;
+  onSubmit(FormData: NgForm){
+    console.log(FormData.value)
+    this.whiteList.PostEmail(FormData.value)
 
-
-    this.whitelistService.createEmail(data)
-      .then(res =>{
-        console.log(res)
-      })
   }
 
 }

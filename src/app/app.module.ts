@@ -18,9 +18,10 @@ import {environment} from "../environments/environment";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import firebase from "firebase/compat";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MailComponent} from "./component/mail/mail.component";
 import { FooterComponent } from './footer/footer.component';
+import {HttpClientModule} from "@angular/common/http";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -45,19 +46,21 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase, 'trashtag-website'),
-    RouterModule.forRoot([
-      {path: '', component: LandingPageComponent},
-      {path: '', component: NotfundComponent},
-      {path: 'trashbag', component: TrashbagComponent},
-      {path: 'city', component: CityComponent}
+    imports: [
+        BrowserModule,
+        AngularFireModule.initializeApp(environment.firebase, 'trashtag-website'),
+        RouterModule.forRoot([
+            {path: '', component: LandingPageComponent},
+            {path: '', component: NotfundComponent},
+            {path: 'trashbag', component: TrashbagComponent},
+            {path: 'city', component: CityComponent}
 
-    ]),
-    ReactiveFormsModule,
+        ]),
+        ReactiveFormsModule,
+        FormsModule,
+      HttpClientModule
 
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

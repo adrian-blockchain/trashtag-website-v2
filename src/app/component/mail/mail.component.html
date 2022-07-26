@@ -1,14 +1,12 @@
 <div class="w-full ml-auto mr-auto md:w-1/2">
-  <form [formGroup]="this.whitelistService.form">
+  <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
     <div class="relative flex items-center max-w-md mx-auto mt-12 overflow-hidden text-center border rounded-full">
-
-      <input type="text" name="email" placeholder="E-mail" class="w-full h-12 px-6 py-2 font-medium text-indigo-800 focus:outline-none">
+      <input type="text" name="email" placeholder="E-mail" class="w-full h-12 px-6 py-2 font-medium text-indigo-800 focus:outline-none" ngModel>
       <span class="relative top-0 right-0 block">
-          <button type="button" (click)="onSubmit()" class="inline-flex bg-blue-700 items-center w-32 h-12 px-8 text-base font-bold leading-6 text-white transition duration-150 ease-in-out hover:bg-blue-500 border bg- focus:outline-none active:bg-indigo-700">
+          <button type="submit"  class="inline-flex bg-blue-700 items-center w-32 h-12 px-8 text-base font-bold leading-6 text-white transition duration-150 ease-in-out hover:bg-blue-500 border bg- focus:outline-none active:bg-indigo-700">
             Join
           </button>
         </span>
-
     </div>
   </form>
 
