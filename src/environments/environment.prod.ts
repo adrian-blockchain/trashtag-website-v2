@@ -1,12 +1,13 @@
 export const environment = {
   production: true,
   firebase:{
-    apiKey: "AIzaSyDNSe0gwF_gSGzQeA3vd8vCGam68moWWvQ",
-    authDomain: "whiteliste-website-trashtag.firebaseapp.com",
-    projectId: "whiteliste-website-trashtag",
-    storageBucket: "whiteliste-website-trashtag.appspot.com",
-    messagingSenderId: "189672715397",
-    appId: "1:189672715397:web:3af1a6cc911908e610e5ec",
-    measurementId: "G-S3C5N8K67K"
+    apiKey: "AIzaSyD_ab6pePB9zuXkkXZsa6ojb72mDznK1n8",
+    authDomain: "trashtag-app--signin.firebaseapp.com",
+    projectId: "trashtag-app--signin",
+    storageBucket: "trashtag-app--signin.appspot.com",
+    messagingSenderId: "726424196389",
+    appId: "1:726424196389:web:3e0907e5cd2a94432536cc",
+    measurementId: "G-YV83CZ4WHN"
+    
   }
 };
