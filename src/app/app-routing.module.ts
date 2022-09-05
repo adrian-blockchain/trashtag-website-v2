@@ -6,9 +6,7 @@ import {CityComponent} from "./component/city/city.component";
 
 const routes: Routes = [
   {path: '', component: LandingPageComponent },
-  {path: 'trashbag', component: TrashbagComponent},
-  {path: 'city', component: CityComponent}
-
+  
 ];
 
 @NgModule({

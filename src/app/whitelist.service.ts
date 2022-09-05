@@ -20,6 +20,14 @@ export class WhitelistService {
             .then(res => {}, err => reject(err));
     });
 }
+PostTrashBag(data:any) {
+  return new Promise<any>((resolve, reject) =>{
+      this.firestore
+          .collection("TrashBag")
+          .add(data)
+          .then(res => {}, err => reject(err));
+  });
+}
 
 async PostContact(data:NgForm) {
 
@@ -37,6 +45,7 @@ async PostContact(data:NgForm) {
           .then(res => {}, err => reject(err));
   });
 }
+
 
   
 }
