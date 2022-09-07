@@ -1,9 +1,17 @@
-version: '3.7'
+version: "3.9"
 
 services:
-  app:
-    build:
-        context: .
-        dockerfile: ./Dockerfile
-    ports:
-      - '80:80'
+  trashtag_website:
+    image: erwanndavid/trashtag_website_v2:latest
+    restart: unless-stopped
+    hostname: trashtag.io
+    networks:
+      - caddy
+    labels:
+        caddy: trashtag.io
+        caddy.reverse_proxy: "{{upstreams http 80}}"
+
+
+networks:
+  caddy:
+    external: true
